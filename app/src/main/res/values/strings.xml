@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LOKU Clan Hub</string>
+    <string name="tap_name">LOKU Klickhilfe</string>
+    <string name="tap_description">Ermöglicht vom Nutzer gestartete Klickgesten an frei positionierbaren Punkten für gespeicherte Event-Profile. Keine Bildschirminhalte werden gelesen.</string>
+</resources>
