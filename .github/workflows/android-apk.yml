@@ -27,9 +27,13 @@ jobs:
           gradle-version: '8.10.2'
       - name: Build Debug APK
         run: gradle --no-daemon --stacktrace :app:assembleDebug
+      - name: Check Android target and APK signature
+        run: |
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging app/build/outputs/apk/debug/app-debug.apk | grep -E "package:|sdkVersion:|targetSdkVersion:"
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs app/build/outputs/apk/debug/app-debug.apk
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: LOKU-Clan-Hub-debug-APK
+          name: LOKU-Event-Klicker-Android35-APK
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error

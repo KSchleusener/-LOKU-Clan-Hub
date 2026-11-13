@@ -3,12 +3,12 @@ android {
     namespace 'de.loku.clanhub'
     compileSdk 35
     defaultConfig {
-        // Eigene App-ID verhindert einen Signatur-Konflikt mit der bestehenden LOKU-App.
+        // Eigenstaendige Installation neben der vorhandenen LOKU-App
         applicationId 'de.loku.eventclicker.standalone'
         minSdk 26
-        targetSdk 32
-        versionCode 2
-        versionName '0.1.1-test'
+        targetSdk 35
+        versionCode 3
+        versionName '0.1.2-android35-test'
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
