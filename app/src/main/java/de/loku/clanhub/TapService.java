@@ -133,9 +133,8 @@ public class TapService extends AccessibilityService {
     }
     private void toast(String message){Toast.makeText(this,message,Toast.LENGTH_SHORT).show();}
     private void addDot(int cx,int cy){
-        int diameter=dp(48);
-        TextView v=label(String.valueOf(dots.size()+1),19,"#FFFFFF");
-        v.setBackground(round("#A958F0",48,"#FFF0A0"));
+        int diameter=dp(62);
+        TextView v=new PetBadge(this,dots.size()+1);
         WindowManager.LayoutParams p=params(diameter,diameter,
             Math.max(0,Math.min(width-diameter,cx-diameter/2)),
             Math.max(0,Math.min(height-diameter,cy-diameter/2)));
@@ -167,7 +166,7 @@ public class TapService extends AccessibilityService {
             if(!dots.isEmpty()){
                 Dot d=dots.get(current++ % dots.size());
                 Path path=new Path();
-                path.moveTo(d.params.x+dp(24),d.params.y+dp(24));
+                path.moveTo(d.params.x+dp(31),d.params.y+dp(31));
                 GestureDescription g=new GestureDescription.Builder()
                     .addStroke(new GestureDescription.StrokeDescription(path,0,55)).build();
                 dispatchGesture(g,null,null);
@@ -198,8 +197,8 @@ public class TapService extends AccessibilityService {
             root.put("intervalMs",intervalMs);
             for(Dot d:dots){
                 JSONObject p=new JSONObject();
-                p.put("x",Math.max(0,Math.min(1,(d.params.x+dp(24))/(double)width)));
-                p.put("y",Math.max(0,Math.min(1,(d.params.y+dp(24))/(double)height)));
+                p.put("x",Math.max(0,Math.min(1,(d.params.x+dp(31))/(double)width)));
+                p.put("y",Math.max(0,Math.min(1,(d.params.y+dp(31))/(double)height)));
                 pts.put(p);
             }
             root.put("points",pts);
