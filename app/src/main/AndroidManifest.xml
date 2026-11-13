@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <queries><package android:name="com.roblox.client" /></queries>
-    <application android:label="LOKU Event Klicker" android:icon="@drawable/loku_icon"
+    <application android:label="LOKU Event Recorder" android:icon="@drawable/loku_icon"
         android:roundIcon="@drawable/loku_icon" android:allowBackup="false"
         android:theme="@style/LOKUTheme" android:supportsRtl="true">
         <activity android:name=".MainActivity" android:exported="true">

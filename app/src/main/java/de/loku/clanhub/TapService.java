@@ -27,6 +27,7 @@ public class TapService extends AccessibilityService {
     private final ArrayList<Dot> dots=new ArrayList<>();
     private final Handler handler=new Handler(Looper.getMainLooper());
     private WindowManager manager;
+    private MacroRecorder recorder;
     private View panel;
     private WindowManager.LayoutParams panelParams;
     private TextView status;
@@ -58,6 +59,7 @@ public class TapService extends AccessibilityService {
         super.onServiceConnected();
         INSTANCE=this;
         manager=(WindowManager)getSystemService(Context.WINDOW_SERVICE);
+        recorder=new MacroRecorder(this,manager);
         width=getResources().getDisplayMetrics().widthPixels;
         height=getResources().getDisplayMetrics().heightPixels;
     }
@@ -104,6 +106,8 @@ public class TapService extends AccessibilityService {
         LinearLayout line4=new LinearLayout(this);box.addView(line4);
         action(line4,"Speichern",()->{save();toast("Profil lokal gespeichert");});
         action(line4,"Schließen",this::closePanel);
+        LinearLayout line5=new LinearLayout(this);box.addView(line5);
+        action(line5,"● REC / PLAY",()->recorder.show());
         panelParams=params(dp(290),-2,dp(18),dp(75));
         panel=box;manager.addView(panel,panelParams);
         String profile=getSharedPreferences("loku",0).getString("profile","");
@@ -240,6 +244,7 @@ public class TapService extends AccessibilityService {
     @Override public void onDestroy(){
         if(panel!=null)closePanel();
         handler.removeCallbacks(tick);
+        if(recorder!=null)recorder.shutdown();
         INSTANCE=null;super.onDestroy();
     }
 }

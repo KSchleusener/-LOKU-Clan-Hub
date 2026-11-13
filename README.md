@@ -1,7 +1,7 @@
-# LOKU Clan Hub – Android Test-Build
+# LOKU Event Recorder – Android Test APK
 
-Dieses Repository enthält einen Android-Testbuild der LOKU-Event-Klickhilfe.
+Im schwebenden Panel gibt es einen Button **REC / PLAY**. Ein transparentes **Aufnahmefeld** erfasst darauf ausgeführte Tipp- und Wischgesten mit ihren zeitlichen Abständen. **Roblox wird beim Aufzeichnen nicht mitbedient**, denn Android erlaubt das normale Mitlesen fremder Touch-Koordinaten nicht. Während des Abspielens werden die aufgezeichneten Gesten über die ausdrücklich freizugebende Bedienungshilfe gesendet.
 
-Das Projekt wird über GitHub Actions als Debug-APK gebaut. Nach erfolgreichem Lauf: Actions → Android APK → letzter erfolgreicher Run → Artifacts → `LOKU-Clan-Hub-debug-APK` herunterladen.
+Nach **STOP + SPEICHERN** steht die Aufnahme lokal bereit, maximal 300 Gesten / 10 Minuten, bis zu 20 Profile. Profile können gewählt, gelöscht, als JSON geteilt und einmal oder wiederholt abgespielt werden.
 
-Die Android-Klickhilfe braucht eine manuelle Freigabe für Bedienungshilfen und das Einblenden über anderen Apps. Sie startet keine Eingaben ohne Nutzeraktion. Test-Version, keine Play-Store-Freigabe oder automatisch veröffentlichte APK. Die Nutzung automatisierter Eingaben kann Spielregeln widersprechen.
+Diese Version verwendet **eine neue eigenständige App-ID** und installiert sich neben früheren LOKU-Versionen, damit unterschiedliche GitHub-Debug-Signaturen keine Update-Konflikte verursachen. Es handelt sich um eine **ungetestete Testversion**, nicht um eine Play-Store-Version. Bedienungshilfe und Overlay-Zugriff müssen vom Nutzer ausdrücklich aktiviert werden. Spielregeln beachten.
